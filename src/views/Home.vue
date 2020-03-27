@@ -1,7 +1,9 @@
 <template>
   <div class="home">
     <v-navigation-drawer v-model="drawer" app temporary color="grey lighten-4">
-      <v-list dense class="grey lighten-4"></v-list>
+      <v-list dense class="grey lighten-4">
+        <CardAyuda/>
+      </v-list>
     </v-navigation-drawer>
 
     <v-content>
@@ -17,12 +19,15 @@
 </template>
 
 <script>
+import CardAyuda from '../components/Card_Ayuda'
 export default {
   name: "Home",
   data: () => ({
     drawer: null
   }),
-  components: {}
+  components: {
+    CardAyuda,
+  }
 };
 </script>
 <style>
