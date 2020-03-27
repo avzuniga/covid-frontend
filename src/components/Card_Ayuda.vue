@@ -2,7 +2,7 @@
   <v-container>
     <v-row dense>
       <v-col cols="12">
-        <v-card color="navbar" dark>
+        <v-card color="navbar" >
           <div class="time float-right">hace 30 min</div>
           <v-row class="title" dense>
             <v-icon large>mdi-pill</v-icon>
