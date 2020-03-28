@@ -62,7 +62,7 @@
             </v-row>
           </div>
           <v-card-actions class="d-flex justify-center">
-            <v-btn color="info" small>Iniciar Sesion</v-btn>
+            <slot></slot>
           </v-card-actions>
         </v-card>
       </v-col>
