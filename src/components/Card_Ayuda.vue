@@ -48,24 +48,4 @@ export default {
 .address{
     font-size: 10px; 
 }
-/* a{
- text-decoration: 'none';
- color: 'black'
-}
-.card{
-  width: 16vw;
-  max-width: 230px;
-	margin: 15px;
-	border-radius: 10px;
-	overflow: hidden;
-  box-shadow: 0 4px 8px 0px rgba(0, 0, 0, 0.2), 0 6px 20px 0px rgba(0, 0, 0, 0.19);
-    
-}
-
-
-.card:hover{
-
-    box-shadow: 0 10px 14px 0px rgba(0, 0, 0, 0.2), 0 12px 30px 0px rgba(0, 0, 0, 0.19);
-
-}  */
 </style>
