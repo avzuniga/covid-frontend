@@ -16,7 +16,7 @@
           <v-card-subtitle class="subtitle">Edad</v-card-subtitle>
           <div class="pr-4 pl-4">
             <v-slider
-              v-model="duration"
+
               min="0"
               max="150"
               thumb-label
