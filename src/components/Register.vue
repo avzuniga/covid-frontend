@@ -45,7 +45,7 @@
           ></v-text-field>
           <small>Todos los campos son obligatorios*</small>
           <br />
-          <v-btn color="navbar" width="100%" @click="validate" dark>Continuar</v-btn>
+          <v-btn color="navbar" width="100%" @click="register" dark>Continuar</v-btn>
         </v-form>
       </v-container>
     </v-card-text>
@@ -56,6 +56,7 @@ import { mapState, mapMutations } from "vuex";
 export default {
   name: "Register",
   data: () => ({
+    lazy: false,
     valid: true,
     dialog: false,
     userdni: null,
@@ -63,6 +64,10 @@ export default {
     usermail: null,
     userpassword: null,
     userage: null,
+    datas:{
+      
+
+    },
     emailRules: [
       v => !!v || "E-mail requerido",
       v => /.+@.+/.test(v) || "E-mail debe ser válido"
@@ -72,6 +77,23 @@ export default {
   methods: {
     validate() {
       this.$refs.form.validate();
+    },
+    register() {
+      if (this.validate()) {
+        let datas = this.datas;
+        this.$store
+          .dispatch("register", { editedItem })
+          .then(
+            resp => (
+              this.datas.push(this.editedItem),
+              (this.succesfull = true),
+              this.reload()
+            )
+          )
+          .catch(err => (console.log(err), (this.error = true)));
+      } else {
+        console.log("incompleto");
+      }
     }
   }
 };
