@@ -14,7 +14,7 @@
           <v-col cols="12">
             <v-text-field
               prepend-icon="mdi-account"
-              v-model="username"
+              v-model="datas.username"
               label="No. Identificación"
               type="text"
               required
@@ -23,7 +23,7 @@
           <v-col cols="12">
             <v-text-field
               prepend-icon="mdi-key"
-              v-model="password"
+              v-model="datas.password"
               label="Contraseña"
               required
               type="password"
@@ -31,7 +31,7 @@
           </v-col>
         </v-row>
         <v-card-actions>
-          <v-btn large width="100%" class="white--text" color="navbar">Entrar</v-btn>
+          <v-btn large width="100%" class="white--text" color="navbar" @click="login">Entrar</v-btn>
         </v-card-actions>
       </v-container>
     </v-card-text>
@@ -53,7 +53,7 @@ export default {
       username: "",
       password: "",
       rute: {
-        url: ""
+        url: "http://54.184.79.67/covid/auth/login"
       }
     }
   }),
@@ -62,8 +62,7 @@ export default {
       let datas = this.datas;
       this.$store
         .dispatch("login", { datas })
-        .then(() => this.$router.push("/home"))
-
+        .then(() => this.$router.push("/userhome"))
         .catch(err => (this.alert = true));
     }
   }

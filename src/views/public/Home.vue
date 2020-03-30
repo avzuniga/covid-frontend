@@ -12,7 +12,7 @@
     </v-navigation-drawer>
 
     <v-content>
-      <v-container fluid></v-container>
+      <v-container fluid>
       <v-row class="nav mx-auto">
         <v-app-bar-nav-icon app @click="drawer = !drawer" />
         <v-spacer />
@@ -35,7 +35,8 @@
             
           </register>
         </v-dialog>
-      </v-row>
+    
+      </v-container>
     </v-content>
   </div>
 </template>
