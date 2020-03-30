@@ -1,42 +1,76 @@
 <template>
-      
-      <v-card>
-        <v-card-title class="">
-          <span class="headline ">Iniciar Sesión</span>
-          
-        </v-card-title>
-        <v-card-text>
-          <v-container>
-            <v-row>
-              <v-col cols="12">
-                <v-text-field label="Cedula" type="text" required></v-text-field>
-              </v-col>
-              <v-col cols="12">
-                <v-text-field label="Contraseña" required type="password"></v-text-field>
-              </v-col>
-              
-              
-            </v-row>
-          </v-container>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <slot name="1"></slot>
-          <slot name ="2"></slot>
-        </v-card-actions>
-      </v-card>
+  <v-card shaped>
+    <v-toolbar class="justify-center" color="navbar">
+      <v-card-title>
+        <span class="headline white--text">Iniciar Sesión</span>
+      </v-card-title>
+      <v-spacer></v-spacer>
+      <slot name="1"></slot>
+    </v-toolbar>
 
+    <v-card-text>
+      <v-container class="content">
+        <v-row>
+          <v-col cols="12">
+            <v-text-field
+              prepend-icon="mdi-account"
+              v-model="username"
+              label="No. Identificación"
+              type="text"
+              required
+            ></v-text-field>
+          </v-col>
+          <v-col cols="12">
+            <v-text-field
+              prepend-icon="mdi-key"
+              v-model="password"
+              label="Contraseña"
+              required
+              type="password"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+        <v-card-actions>
+          <v-btn large width="100%" class="white--text" color="navbar">Entrar</v-btn>
+        </v-card-actions>
+      </v-container>
+    </v-card-text>
+
+    <v-snackbar v-model="alert" color="error" top>
+      Algo salió mal!
+      Datos incorrectos
+    </v-snackbar>
+  </v-card>
 </template>
 <script>
-
 export default {
-    name:'Login',
-    data: () => ({
-    logindni:null,
-    loginpassword:null,
-    
+  name: "Login",
+  data: () => ({
+    alert: false,
+    logindni: null,
+    loginpassword: null,
+    datas: {
+      username: "",
+      password: "",
+      rute: {
+        url: ""
+      }
+    }
   }),
-  methods:{
+  methods: {
+    login: function() {
+      let datas = this.datas;
+      this.$store
+        .dispatch("login", { datas })
+        .then(() => this.$router.push("/home"))
+
+        .catch(err => (this.alert = true));
+    }
   }
-}
+};
 </script>
+<style>
+.content {
+  padding: 20px;
+}
+</style>
