@@ -1,10 +1,13 @@
 <template>
+    <!--
     <gmap-map
             :center="center"
             :zoom="12"
             style="width:100%;  height: 400px;"
     >
     </gmap-map>
+    -->
+    <img src="../assets/maps.png" />
 </template>
 
 <script>
@@ -56,13 +59,13 @@
 
 
 <style scoped>
-    .vue-map-container {
+    .vue-map-container, img {
         position: absolute;
         top: 0;
-        left: 0;
-        width: 100%;
+        left: -100px;
+        /*width: 100%;*/
         height: 100%;
-        z-index: -1;
+        z-index: -3;
     }
 </style>
 
