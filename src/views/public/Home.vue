@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+
     <v-navigation-drawer v-model="drawer" width="350px" app temporary color="grey lighten-4">
       <v-list dense class="grey lighten-4">
         <!-- <CardAyuda/> -->
@@ -32,10 +33,10 @@
             <template slot="1">
               <v-btn color="white" text @click="registerwindow = false">Cancelar</v-btn>
             </template>
-            
+
           </register>
         </v-dialog>
-    
+      </v-row>
       </v-container>
     </v-content>
   </div>

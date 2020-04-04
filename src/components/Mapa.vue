@@ -1,13 +1,11 @@
 <template>
-    <!--
     <gmap-map
             :center="center"
             :zoom="12"
             style="width:100%;  height: 400px;"
     >
     </gmap-map>
-    -->
-    <img src="../assets/maps.png" />
+<!--    <img src="../assets/maps.png" />-->
 </template>
 
 <script>
