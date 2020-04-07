@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+
     <v-navigation-drawer v-model="drawer" width="350px" app temporary color="grey lighten-4">
       <v-list dense class="grey lighten-4">
         <!-- <CardAyuda/> -->
@@ -55,6 +56,7 @@
             </template>
           </register>
         </v-dialog>
+
       </v-container>
     </v-content>
   </div>
@@ -94,6 +96,7 @@ export default {
   background-color: transparent;
 }
 
+
 #create .v-speed-dial {
   position: absolute;
 }
@@ -102,3 +105,4 @@ export default {
   position: relative;
 }
 </style>
+
