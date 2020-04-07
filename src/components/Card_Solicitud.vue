@@ -39,7 +39,7 @@
           </div>
           <v-card-subtitle class="subtitle">Requiero</v-card-subtitle>
           <div class="d-flex justify-center">
-            <v-btn icon large class="mr-5">
+            <v-btn icon large class="mr-5 active">
               <v-icon x-large>mdi-pill</v-icon>
             </v-btn>
             <v-btn icon large>

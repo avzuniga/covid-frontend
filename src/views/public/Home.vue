@@ -14,11 +14,33 @@
 
     <v-content>
       <v-container fluid>
-      <v-row class="nav mx-auto">
         <v-app-bar-nav-icon app @click="drawer = !drawer" />
         <v-spacer />
         <!-- Se añade funcionalidad a los botones -->
-        <v-btn class="navButton" @click="loginwindow= true">Iniciar Sesion</v-btn>
+
+        <v-speed-dial
+          v-model="fab"
+          fixed
+          direction="left"
+          top
+          right
+          transition="slide-x-reverse-transition"
+        >
+          <template v-slot:activator>
+            <v-btn v-model="fab" color="navbar" dark fab>
+              <v-icon v-if="fab">mdi-close</v-icon>
+              <v-icon v-else>mdi-account-circle</v-icon>
+            </v-btn>
+          </template>
+          <v-btn class="navButton" @click="loginwindow= true">Iniciar Sesion</v-btn>
+          <v-btn
+            class="white--text navButton"
+            color="navbar"
+            @click="registerwindow = true"
+          >Registrar</v-btn>
+         
+          
+        </v-speed-dial>
 
         <v-dialog v-model="loginwindow" persistent max-width="600px">
           <login>
@@ -27,16 +49,14 @@
             </template>
           </login>
         </v-dialog>
-        <v-btn class="white--text navButton" color="navbar" @click="registerwindow = true">Registrar</v-btn>
         <v-dialog v-model="registerwindow" persistent max-width="600px">
           <register>
             <template slot="1">
               <v-btn color="white" text @click="registerwindow = false">Cancelar</v-btn>
             </template>
-
           </register>
         </v-dialog>
-      </v-row>
+
       </v-container>
     </v-content>
   </div>
@@ -51,6 +71,7 @@ import Register from "../../components/Register";
 export default {
   name: "Home",
   data: () => ({
+    fab: true,
     drawer: null,
     registerwindow: false, // Abre o cierra la ventana
     loginwindow: false
@@ -74,4 +95,14 @@ export default {
 .nav {
   background-color: transparent;
 }
+
+
+#create .v-speed-dial {
+  position: absolute;
+}
+
+#create .v-btn--floating {
+  position: relative;
+}
 </style>
+
