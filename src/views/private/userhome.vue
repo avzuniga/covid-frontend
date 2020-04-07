@@ -68,7 +68,7 @@ export default {
   data: () => ({
     fab: false,
     drawer: null,
-    registerwindow: false, // Abre o cierra la ventana
+    registerwindow: false,
     loginwindow: false
   }),
   components: {

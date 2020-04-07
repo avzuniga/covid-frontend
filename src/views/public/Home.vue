@@ -48,7 +48,6 @@
             </template>
           </login>
         </v-dialog>
-
         <v-dialog v-model="registerwindow" persistent max-width="600px">
           <register>
             <template slot="1">
