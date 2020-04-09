@@ -1,13 +1,67 @@
 <template>
   <div class="home">
-    <v-navigation-drawer v-model="drawer" width="350px" app temporary color="grey lighten-4">
+    <v-navigation-drawer v-model="drawer" width="300px" app temporary color="grey lighten-4">
+      <v-list class="justify-center">
+        <v-img src="https://cdn.vuetifyjs.com/images/cards/mountain.jpg" height="194">
+          <v-list-item class="px-2 mx-auto">
+            <v-list-item-avatar size="100" class="justify-center">
+              <v-img src="https://randomuser.me/api/portraits/women/85.jpg"></v-img>
+            </v-list-item-avatar>
+          </v-list-item>
+
+          <v-list-item>
+            <v-list-item-content>
+              <v-list-item-title class="title white--text">Sandra Adams</v-list-item-title>
+            </v-list-item-content>
+          </v-list-item>
+        </v-img>
+      </v-list>
+
+      <v-divider></v-divider>
+
       <v-list dense class="grey lighten-4">
+        <v-list-item link>
+          <v-list-item-icon>
+            <v-icon color="navbar">mdi-frequently-asked-questions</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title>Mis solicitudes</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item link>
+          <v-list-item-icon>
+            <v-icon color="navbar">mdi-alert-octagon</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title>Mis reportes</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
+        <v-list-item link>
+          <v-list-item-icon>
+            <v-icon color="navbar">mdi-logout</v-icon>
+          </v-list-item-icon>
+
+          <v-list-item-content>
+            <v-list-item-title>Salir</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-divider></v-divider>
         <!-- <CardAyuda/> -->
         <!-- Comentado para probar la card de las solicitudes -->
-        <CardSolicitud>
+        
+
+        <CardSolicitud></CardSolicitud>
+
+        <template v-slot:append>
+        <div class="pa-2">
+          <v-btn color="navbar">Salir</v-btn>
+        </div>
+      </template>
        
-          
-        </CardSolicitud>
       </v-list>
     </v-navigation-drawer>
 
@@ -15,27 +69,7 @@
       <v-container fluid>
         <v-app-bar-nav-icon app @click="drawer = !drawer" />
         <v-spacer />
-        <!-- Se añade funcionalidad a los botones -->
-
-        <v-speed-dial
-          v-model="fab"
-          fixed
-          direction="left"
-          top
-          right
-          transition="slide-x-reverse-transition"
-        >
-          <template v-slot:activator>
-            <v-btn v-model="fab" color="navbar" dark fab>
-              <v-icon v-if="fab">mdi-close</v-icon>
-              <v-icon v-else>mdi-account-circle</v-icon>
-            </v-btn>
-          </template>
-          <v-btn class="navButton" @click="logout">Salir</v-btn>
-          
-         
-          
-        </v-speed-dial>
+        
 
         <v-dialog v-model="loginwindow" persistent max-width="600px">
           <login>
