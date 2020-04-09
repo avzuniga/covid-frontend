@@ -1,20 +1,10 @@
 <template>
   <div class="home">
-    <v-navigation-drawer v-model="drawer" width="350px" app temporary color="grey lighten-4">
-      <v-list dense class="grey lighten-4">
-        <!-- <CardAyuda/> -->
-        <!-- Comentado para probar la card de las solicitudes -->
-        <CardSolicitud>
-          <!-- Ojo, he añadido un slot, para poder habilitar el inicio de sesión desde la card -->
-          <v-btn color="info" small @click="loginwindow=true">Iniciar Sesion</v-btn>
-        </CardSolicitud>
-      </v-list>
-    </v-navigation-drawer>
+    <Mapa />
 
     <v-content>
       <v-container fluid>
-        <v-app-bar-nav-icon app @click="drawer = !drawer" />
-        <v-spacer />
+       
         <!-- Se añade funcionalidad a los botones -->
 
         <v-speed-dial
@@ -36,9 +26,7 @@
             class="white--text navButton"
             color="navbar"
             @click="registerwindow = true"
-          >Registrar</v-btn>
-         
-          
+          >Registrarse</v-btn>
         </v-speed-dial>
 
         <v-dialog v-model="loginwindow" persistent max-width="600px">
@@ -61,10 +49,11 @@
 </template>
 
 <script>
-import CardAyuda from "../../components/Card_Ayuda";
-import CardSolicitud from "../../components/Card_Solicitud";
-import Login from "../../components/Login";
-import Register from "../../components/Register";
+import CardAyuda from "../components/Card_Ayuda";
+import CardSolicitud from "../components/Card_Solicitud";
+import Login from "../components/Login";
+import Register from "../components/Register";
+import Mapa from "../components/Mapa";
 
 export default {
   name: "Home",
@@ -78,7 +67,8 @@ export default {
     CardAyuda,
     CardSolicitud,
     Login,
-    Register
+    Register,
+    Mapa
   }
 };
 </script>
@@ -102,3 +92,4 @@ export default {
   position: relative;
 }
 </style>
+

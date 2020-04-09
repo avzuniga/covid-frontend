@@ -24,6 +24,7 @@
     </v-row>
   </v-container>
 </template>
+
 <script>
 export default {
   name: "Card_Ayuda",
@@ -33,7 +34,7 @@ export default {
 
 <style lang="css" scoped>
 .time {
-    font-size: 10px; 
+    font-size: 10px;
   margin-top: 25px;
   margin-right: 15px;
 }
@@ -42,10 +43,10 @@ export default {
 }
 
 .usertype{
-   font-size: 16px; 
+   font-size: 16px;
    font-weight: bold
 }
 .address{
-    font-size: 10px; 
+    font-size: 10px;
 }
 </style>
