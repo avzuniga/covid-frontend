@@ -28,13 +28,45 @@
 <script>
 export default {
   name: "Card_Ayuda",
-  data: () => ({})
+  data: () => ({
+    alert: false,
+    logindni: null,
+    loginpassword: null,
+    datas: {
+      descripcion: "",
+      nombre: "",
+      edad: 0,
+      telefono: "",
+      tipo_persona: "",
+      estado: "",
+      tipo_necesidad: 0,
+      usuario: "",
+      /* rute: {
+        url: "http://54.184.79.67/covid/api/v1/reportes/get_reportes_usuario/"
+      } */
+    }
+  }),
+  methods: {
+    login: function() {
+      let datas = {
+        url: "http://54.184.79.67/covid/api/v1/reportes/get_reportes_usuario/"
+      };
+      this.$store
+        .dispatch("getDatas", { datas })
+        .then(
+            resp => (
+              console.log("POST CORRECTO")
+            )
+          )
+        .catch(err => (this.alert = true));
+    }
+  }
 };
 </script>
 
 <style lang="css" scoped>
 .time {
-    font-size: 10px;
+  font-size: 10px;
   margin-top: 25px;
   margin-right: 15px;
 }
@@ -42,11 +74,11 @@ export default {
   margin-left: 15px;
 }
 
-.usertype{
-   font-size: 16px;
-   font-weight: bold
+.usertype {
+  font-size: 16px;
+  font-weight: bold;
 }
-.address{
-    font-size: 10px;
+.address {
+  font-size: 10px;
 }
 </style>
